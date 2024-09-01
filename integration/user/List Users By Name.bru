@@ -1,0 +1,23 @@
+meta {
+  name: List Users By Name
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{HOST_DOMAIN}}/users?name={{name}}
+  body: none
+  auth: none
+}
+
+query {
+  name: {{name}}
+}
+
+assert {
+  res.body[0].name: eq {{name}}
+}
+
+script:post-response {
+  bru.setNextRequest("List All Users");
+}

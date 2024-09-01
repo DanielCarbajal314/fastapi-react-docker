@@ -1,0 +1,24 @@
+meta {
+  name: List Users By New Name
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{HOST_DOMAIN}}/users?name={{newUserName}}
+  body: none
+  auth: none
+}
+
+query {
+  name: {{newUserName}}
+}
+
+assert {
+  res.body[0].name: eq {{newUserName}}
+  res.body[0].id: eq {{createdUserId}}
+}
+
+script:post-response {
+  bru.setNextRequest("Remove User");
+}

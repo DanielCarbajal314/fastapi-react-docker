@@ -1,0 +1,28 @@
+meta {
+  name: Update User
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{HOST_DOMAIN}}/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": {{createdUserId}},
+    "name": "{{newUserName}}"
+  }
+}
+
+script:pre-request {
+  const {faker} = require('@faker-js/faker');
+  bru.setVar("newUserName",faker.person.fullName());
+  
+}
+
+script:post-response {
+  bru.setNextRequest("List Users By New Name")
+}

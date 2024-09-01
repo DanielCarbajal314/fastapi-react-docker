@@ -1,0 +1,15 @@
+meta {
+  name: Remove User
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{HOST_DOMAIN}}/users/{{createdUserId}}
+  body: none
+  auth: none
+}
+
+assert {
+  res.body.id: eq {{createdUserId}}
+}

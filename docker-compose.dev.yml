@@ -1,0 +1,51 @@
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    env_file:
+      - .env.backend
+    ports:
+      - 8080:80
+    user: root
+    entrypoint: /bin/sh -c "chmod 600 /pgpass; /entrypoint.sh;"
+    volumes:
+      - ./pgadmin/pgpass:/pgpass
+      - ./pgadmin/servers.json:/pgadmin4/servers.json
+    depends_on:
+      db:
+        condition: service_healthy
+
+  server:
+    build: 
+      context: backend
+      target: dev
+    env_file:
+      - .env.backend
+    volumes:
+      - ./backend/src:/code/src
+    ports:
+      - 8000:8000
+    depends_on:
+      migration:
+        condition: service_completed_successfully
+
+  migration:
+    build: 
+      context: backend
+      target: migration
+    env_file:
+      - .env.backend
+    depends_on:
+      db:
+        condition: service_healthy
+
+  ui:
+    build: 
+      context: frontend
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./frontend/src:/code/src
+    env_file:
+      - .env.frontend
+    ports:
+      - 3005:5173
