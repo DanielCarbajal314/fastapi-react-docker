@@ -13,17 +13,23 @@ post {
 body:json {
   {
     "name": "{{project_name}}",
-    "task_states": [
+    "taskStates": [
       "{{state_1}}",
       "{{state_2}}",
       "{{state_3}}"
     ],
-    "users_ids":[
+    "usersIds":[
       {{createdUserId_3}},
       {{createdUserId_2}},
       {{createdUserId_1}}
     ]
   }
+}
+
+assert {
+  res.body.name: eq "{{project_name}}"
+  res.body.users.length: eq 3
+  res.body.taskStates.length: eq 3
 }
 
 script:pre-request {

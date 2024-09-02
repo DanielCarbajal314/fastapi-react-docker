@@ -15,5 +15,5 @@ class UserSchema(BaseSchema):
 class CreateProjectResponse(BaseSchema):
     id: int
     name: str
-    users_names: List[UserSchema]
+    users: List[UserSchema]
     task_states: List[TaskStateSchema]

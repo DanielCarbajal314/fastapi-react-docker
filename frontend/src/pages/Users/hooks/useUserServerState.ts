@@ -9,6 +9,7 @@ import {
   UserUpdateRequest,
   UserUpdateResponse,
 } from "../api/types";
+import { USERS_OPTIONS_QUERY_KEY } from "../../../shared/hooks/useUserOptions";
 
 const LIST_USER_KEY = "LIST_USERS";
 
@@ -29,6 +30,7 @@ export function useUserServerState() {
           (oldData: UserListResponseItem[]) =>
             oldData.filter((x) => x.id !== response.id),
         );
+        queryClient.invalidateQueries({ queryKey: USERS_OPTIONS_QUERY_KEY });
       },
     });
   const deleteUserFun = (id: number) => deleteUserMutation(id);
@@ -40,6 +42,7 @@ export function useUserServerState() {
           [LIST_USER_KEY, filterName],
           (oldData: UserListResponseItem[]) => [...oldData, response],
         );
+        queryClient.invalidateQueries({ queryKey: USERS_OPTIONS_QUERY_KEY });
       },
     });
   const createUserFun = (request: UserCreateRequest) =>
@@ -56,6 +59,7 @@ export function useUserServerState() {
             return [...oldData];
           },
         );
+        queryClient.invalidateQueries({ queryKey: USERS_OPTIONS_QUERY_KEY });
       },
     });
   const updateUserFun = (
