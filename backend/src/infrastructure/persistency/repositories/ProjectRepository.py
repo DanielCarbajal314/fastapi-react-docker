@@ -19,3 +19,10 @@ class ProjectRepository(BaseRepository[Project]):
         query = select(Project).options(selectinload(Project.users)).order_by(Project.name)
         users = await self._session.execute(query)
         return users.scalars().all()
+
+    async def get_project_with_dependencies_by_id(self, project_id: int) -> Project:
+        query = (
+            select(Project).options(selectinload(Project.users)).where(Project.id == project_id).order_by(Project.name)
+        )
+        users = await self._session.execute(query)
+        return users.scalars().one()

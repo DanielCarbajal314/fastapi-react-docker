@@ -1,0 +1,17 @@
+meta {
+  name: Project By Id
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{HOST_DOMAIN}}/projects/{{created_project_id}}
+  body: none
+  auth: none
+}
+
+script:post-response {
+  bru.setVar("created_project_first_task_state_id", res.body.taskStatesOptions[0].value)
+  bru.setVar("created_project_second_task_state_id", res.body.taskStatesOptions[1].value)
+  bru.setNextRequest("Create Task")
+}

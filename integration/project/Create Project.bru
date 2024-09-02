@@ -40,3 +40,9 @@ script:pre-request {
   bru.setVar("state_3",faker.word.noun());
   
 }
+
+script:post-response {
+  bru.setNextRequest("List Project");
+  bru.setVar("created_project_id", res.body.id)
+  
+}

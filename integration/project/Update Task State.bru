@@ -1,0 +1,19 @@
+meta {
+  name: Update Task State
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{HOST_DOMAIN}}/tasks
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "taskId": {{new_task_id}},
+      "projectId": {{created_project_id}},
+      "taskStateId": {{created_project_second_task_state_id}}
+  }
+}

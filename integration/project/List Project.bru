@@ -13,3 +13,7 @@ get {
 assert {
   res.body.length: gte 1
 }
+
+script:post-response {
+  bru.setNextRequest("Project By Id");
+}
