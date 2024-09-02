@@ -1,0 +1,36 @@
+meta {
+  name: Create Project
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{HOST_DOMAIN}}/projects
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "{{project_name}}",
+    "task_states": [
+      "{{state_1}}",
+      "{{state_2}}",
+      "{{state_3}}"
+    ],
+    "users_ids":[
+      {{createdUserId_3}},
+      {{createdUserId_2}},
+      {{createdUserId_1}}
+    ]
+  }
+}
+
+script:pre-request {
+  const {faker} = require('@faker-js/faker');
+  bru.setVar("project_name",faker.word.noun());
+  bru.setVar("state_1",faker.word.noun());
+  bru.setVar("state_2",faker.word.noun());
+  bru.setVar("state_3",faker.word.noun());
+  
+}

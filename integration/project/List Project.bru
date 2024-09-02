@@ -1,0 +1,15 @@
+meta {
+  name: List Project
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{HOST_DOMAIN}}/projects
+  body: none
+  auth: none
+}
+
+assert {
+  res.body.length: gte 1
+}

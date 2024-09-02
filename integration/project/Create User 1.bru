@@ -1,0 +1,32 @@
+meta {
+  name: Create User 1
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{HOST_DOMAIN}}/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "{{name}}"
+  }
+}
+
+assert {
+  res.body.id: isDefined
+  res.body.name: eq {{name}}
+}
+
+script:pre-request {
+  const {faker} = require('@faker-js/faker');
+  bru.setVar("name",faker.person.fullName());
+}
+
+script:post-response {
+  bru.setVar("createdUserId_1", res.body.id);
+  bru.setNextRequest("Create User 2");
+}
