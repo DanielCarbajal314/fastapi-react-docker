@@ -1,4 +1,5 @@
 import { NavBar } from "../shared/components/NavBar";
+import { ProjectKanbam } from "./ProjectKanbam";
 import { Projects } from "./Projects";
 import { Status } from "./Status";
 import { Users } from "./Users";
@@ -13,6 +14,7 @@ export function AppRouter() {
         <Route path="projects" element={<Projects />} />
         <Route path="users" element={<Users />} />
         <Route path="status" element={<Status />} />
+        <Route path="projects/:projectId" element={<ProjectKanbam />} />
       </Routes>
     </Router>
   );

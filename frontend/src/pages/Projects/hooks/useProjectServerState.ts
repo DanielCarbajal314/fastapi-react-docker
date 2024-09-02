@@ -27,6 +27,7 @@ export function useProjectServerState() {
   });
   const createProject = (body: ProjectCreateRequest, onSuccess?: () => void) =>
     mutate(body, { onSuccess });
+
   return {
     userOptions,
     projects,
