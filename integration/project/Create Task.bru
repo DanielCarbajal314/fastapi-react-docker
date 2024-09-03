@@ -25,8 +25,8 @@ body:json {
 
 script:pre-request {
   const {faker} = require('@faker-js/faker');
-  bru.setVar("new_task_name",faker.person.fullName());
-  bru.setVar("new_task_description",faker.lorem.words());
+  bru.setVar("new_task_name",faker.lorem.words());
+  bru.setVar("new_task_description",faker.lorem.paragraph());
 }
 
 script:post-response {

@@ -26,6 +26,7 @@ class GetProjectHandler(BaseHandler[GetProjectRequest, GetProjectResponse]):
                     description=task.description,
                     users=[user.name for user in task.users],
                     task_state=task.task_state.name,
+                    timestamp=task.updated_at or task.created_at,
                 )
                 for task in tasks
             ],

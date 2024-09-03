@@ -1,5 +1,6 @@
 from typing import List
 from src.shared.serializers import BaseSchema
+from datetime import datetime
 
 
 class Option(BaseSchema):
@@ -14,6 +15,7 @@ class TaskSchema(BaseSchema):
     description: str
     users: List[str]
     task_state: str
+    timestamp: datetime
 
 
 class GetProjectResponse(BaseSchema):

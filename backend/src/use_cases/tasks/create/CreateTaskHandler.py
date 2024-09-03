@@ -26,4 +26,5 @@ class CreateTaskHandler(BaseHandler[CreateTaskRequest, CreateTaskResponse]):
             description=new_task.description,
             users=[user.name for user in users],
             task_state=task_state.name,
+            timestamp=new_task.created_at,
         )
