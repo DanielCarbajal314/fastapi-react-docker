@@ -72,12 +72,14 @@ export function UserTableRow({
         ) : (
           <div className="flex justify-center items-center gap-10 max-w-20">
             <Button
+              data-ui="update_button"
               label="Update"
               onClick={setToUpdateMode}
               disabled={disableWhileDeleting}
               isLoading={disableWhileDeleting}
             />
             <Button
+              data-ui="update_delete"
               label="Delete"
               onClick={onDelete}
               disabled={disableWhileDeleting}

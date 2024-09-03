@@ -1,8 +1,10 @@
-from typing import TypeVar, Generic
 from abc import abstractmethod
-from pydantic import BaseModel
+from typing import Generic, TypeVar
+
 from fastapi import Depends
-from src.infrastructure.persistency import get_unit_of_work, UnitOfWork
+from pydantic import BaseModel
+
+from src.infrastructure.persistency import UnitOfWork, get_unit_of_work
 
 
 class BaseRequest(BaseModel):

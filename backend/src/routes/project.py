@@ -1,16 +1,12 @@
 from typing import List
+
 from fastapi import APIRouter, Depends
-from src.use_cases.projects import (
-    CreateProjectRequest,
-    CreateProjectHandler,
-    CreateProjectResponse,
-    ListProjectResponseItem,
-    ListProjectHandler,
-    ListProjectRequest,
-    GetProjectHandler,
-    GetProjectRequest,
-    GetProjectResponse,
-)
+
+from src.use_cases.projects import (CreateProjectHandler, CreateProjectRequest,
+                                    CreateProjectResponse, GetProjectHandler,
+                                    GetProjectRequest, GetProjectResponse,
+                                    ListProjectHandler, ListProjectRequest,
+                                    ListProjectResponseItem)
 
 project_router = APIRouter(prefix="/projects", tags=["projects"])
 

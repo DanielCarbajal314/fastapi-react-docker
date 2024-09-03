@@ -1,7 +1,10 @@
 from typing import List
+
 from sqlalchemy import select
-from .BaseRepository import BaseRepository
+
 from src.database.entities import TaskState
+
+from .BaseRepository import BaseRepository
 
 
 class TaskStateRepository(BaseRepository[TaskState]):

@@ -1,8 +1,10 @@
-from typing import List
-from .ListProjectRequest import ListProjectRequest
-from .ListProjectResponseItem import ListProjectResponseItem, TaskStateSchema, UserSchema
-from ...shared import BaseHandler
 from itertools import groupby
+from typing import List
+
+from ...shared import BaseHandler
+from .ListProjectRequest import ListProjectRequest
+from .ListProjectResponseItem import (ListProjectResponseItem, TaskStateSchema,
+                                      UserSchema)
 
 
 class ListProjectHandler(BaseHandler[ListProjectRequest, ListProjectResponseItem]):

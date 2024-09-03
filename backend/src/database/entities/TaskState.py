@@ -1,7 +1,8 @@
-from sqlalchemy import Column, String, Integer, JSON, ForeignKey
-from .shared.IntegerIdEntity import IntegerIdEntity
-from .shared.base import Base
+from sqlalchemy import JSON, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
+
+from .shared.base import Base
+from .shared.IntegerIdEntity import IntegerIdEntity
 
 
 class TaskState(Base, IntegerIdEntity):

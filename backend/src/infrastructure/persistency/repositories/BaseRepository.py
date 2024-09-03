@@ -1,6 +1,7 @@
+from typing import Generic, List, TypeVar
+
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-from typing import Generic, TypeVar, List
 
 TEntity = TypeVar("TEntity")
 

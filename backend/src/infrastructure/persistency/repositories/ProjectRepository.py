@@ -1,8 +1,11 @@
 from typing import List
+
 from sqlalchemy import select
-from .BaseRepository import BaseRepository
+from sqlalchemy.orm import joinedload, selectinload, with_polymorphic
+
 from src.database.entities import Project, TaskState
-from sqlalchemy.orm import joinedload, with_polymorphic, selectinload
+
+from .BaseRepository import BaseRepository
 
 
 class ProjectRepository(BaseRepository[Project]):

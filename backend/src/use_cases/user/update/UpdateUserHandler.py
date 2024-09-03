@@ -1,6 +1,6 @@
+from ...shared import BaseHandler
 from .UpdateUserRequest import UpdateUserRequest
 from .UpdateUserResponse import UpdateUserResponse
-from ...shared import BaseHandler
 
 
 class UpdateUserHandler(BaseHandler[UpdateUserRequest, UpdateUserResponse]):

@@ -1,7 +1,8 @@
+from src.database.entities import User
+
+from ...shared import BaseHandler
 from .CreateUserRequest import CreateUserRequest
 from .CreateUserResponse import CreateUserResponse
-from ...shared import BaseHandler
-from src.database.entities import User
 
 
 class CreateUserHandler(BaseHandler[CreateUserRequest, CreateUserResponse]):

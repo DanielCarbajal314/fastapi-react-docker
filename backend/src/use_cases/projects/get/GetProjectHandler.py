@@ -1,7 +1,8 @@
 from typing import List
+
+from ...shared import BaseHandler
 from .GetProjectRequest import GetProjectRequest
 from .GetProjectResponse import GetProjectResponse, Option, TaskSchema
-from ...shared import BaseHandler
 
 
 class GetProjectHandler(BaseHandler[GetProjectRequest, GetProjectResponse]):

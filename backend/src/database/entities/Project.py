@@ -1,7 +1,8 @@
 from sqlalchemy import Column, ForeignKey, Integer, String, Table
-from .shared.IntegerIdEntity import IntegerIdEntity
-from .shared.base import Base
 from sqlalchemy.orm import relationship
+
+from .shared.base import Base
+from .shared.IntegerIdEntity import IntegerIdEntity
 
 project_user_table = Table(
     "project_user_table",

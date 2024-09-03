@@ -1,6 +1,6 @@
+from ...shared import BaseHandler
 from .DeleteUserRequest import DeleteUserRequest
 from .DeleteUserResponse import DeleteUserResponse
-from ...shared import BaseHandler
 
 
 class DeleteUserHandler(BaseHandler[DeleteUserRequest, DeleteUserResponse]):

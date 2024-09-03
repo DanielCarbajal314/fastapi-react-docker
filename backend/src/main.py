@@ -1,5 +1,6 @@
+from src.routes import project_router, task_router, user_router
+
 from .bootstrap import app
-from src.routes import user_router, project_router, task_router
 
 app.include_router(user_router)
 app.include_router(project_router)

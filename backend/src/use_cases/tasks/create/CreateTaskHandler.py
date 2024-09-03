@@ -1,8 +1,10 @@
 from typing import List
+
 from src.database.entities import Task
+
+from ...shared import BaseHandler
 from .CreateTaskRequest import CreateTaskRequest
 from .CreateTaskResponse import CreateTaskResponse
-from ...shared import BaseHandler
 
 
 class CreateTaskHandler(BaseHandler[CreateTaskRequest, CreateTaskResponse]):

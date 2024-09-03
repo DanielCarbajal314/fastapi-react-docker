@@ -1,9 +1,12 @@
 from contextlib import contextmanager
 from typing import Any, AsyncGenerator
-from src.config import get_config
+
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
+
+from src.config import get_config
+
 from .UnitOfWork import UnitOfWork
 
 config = get_config()

@@ -1,7 +1,9 @@
-from .CreateProjectRequest import CreateProjectRequest
-from .CreateProjectResponse import CreateProjectResponse, TaskStateSchema, UserSchema
-from ...shared import BaseHandler
 from src.database.entities import Project
+
+from ...shared import BaseHandler
+from .CreateProjectRequest import CreateProjectRequest
+from .CreateProjectResponse import (CreateProjectResponse, TaskStateSchema,
+                                    UserSchema)
 
 
 class CreateProjectHandler(BaseHandler[CreateProjectRequest, CreateProjectResponse]):

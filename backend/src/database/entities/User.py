@@ -1,8 +1,9 @@
-from sqlalchemy import Column, ForeignKey, Integer, JSON, String
-from .shared.IntegerIdEntity import IntegerIdEntity
+from sqlalchemy import JSON, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
-from .shared.base import Base
+
 from .Project import project_user_table
+from .shared.base import Base
+from .shared.IntegerIdEntity import IntegerIdEntity
 from .Task import task_user_table
 
 

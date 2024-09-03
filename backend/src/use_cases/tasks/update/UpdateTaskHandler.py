@@ -1,7 +1,8 @@
-from .UpdateTaskResponse import UpdateTaskResponse
-from .UpdateTaskRequest import UpdateTaskRequest
-from ...shared import BaseHandler
 from datetime import datetime
+
+from ...shared import BaseHandler
+from .UpdateTaskRequest import UpdateTaskRequest
+from .UpdateTaskResponse import UpdateTaskResponse
 
 
 class UpdateTaskHandler(BaseHandler[UpdateTaskRequest, UpdateTaskResponse]):

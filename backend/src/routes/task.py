@@ -1,13 +1,10 @@
 from typing import List
+
 from fastapi import APIRouter, Depends
-from src.use_cases.tasks import (
-    CreateTaskHandler,
-    CreateTaskRequest,
-    CreateTaskResponse,
-    UpdateTaskHandler,
-    UpdateTaskRequest,
-    UpdateTaskResponse,
-)
+
+from src.use_cases.tasks import (CreateTaskHandler, CreateTaskRequest,
+                                 CreateTaskResponse, UpdateTaskHandler,
+                                 UpdateTaskRequest, UpdateTaskResponse)
 
 task_router = APIRouter(prefix="/tasks", tags=["tasks"])
 

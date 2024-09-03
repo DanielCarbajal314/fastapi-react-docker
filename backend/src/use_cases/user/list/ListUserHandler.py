@@ -1,6 +1,6 @@
+from ...shared import BaseHandler
 from .ListUserRequest import ListUserRequest
 from .ListUserResponseItem import ListUserResponseItem
-from ...shared import BaseHandler
 
 
 class ListUserHandler(BaseHandler[ListUserRequest, ListUserResponseItem]):

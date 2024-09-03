@@ -1,5 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from .repositories import UserRepository, ProjectRepository, TaskStateRepository, TaskRepository
+
+from .repositories import (ProjectRepository, TaskRepository,
+                           TaskStateRepository, UserRepository)
 
 
 class UnitOfWork:

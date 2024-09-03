@@ -1,8 +1,12 @@
 from dataclasses import dataclass
 from typing import List
+
 from sqlalchemy import select
+
+from src.database.entities import (Project, Task, TaskState, User,
+                                   task_user_table)
+
 from .BaseRepository import BaseRepository
-from src.database.entities import User, Task, TaskState, Project, task_user_table
 
 
 @dataclass

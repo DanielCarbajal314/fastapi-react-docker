@@ -35,11 +35,12 @@ export function UserTable({
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody data-ui="user_table">
           {users?.map((user) => (
             <tr
               className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
               key={user.id}
+              data-ui={user.name}
             >
               <UserTableRow
                 {...{

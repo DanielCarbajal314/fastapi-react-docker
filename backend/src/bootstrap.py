@@ -1,9 +1,10 @@
-from fastapi import FastAPI, Request, logger
-from fastapi.responses import JSONResponse
-from pydantic import ValidationError
-from fastapi.middleware.cors import CORSMiddleware
 from logging import getLogger
 from uuid import uuid4
+
+from fastapi import FastAPI, Request, logger
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from pydantic import ValidationError
 
 logger = getLogger(__name__)
 app = FastAPI()

@@ -1,23 +1,16 @@
 from time import sleep
 from typing import List
+
 from fastapi import APIRouter, Depends
-from src.use_cases.user import (
-    CreateUserHandler,
-    CreateUserRequest,
-    CreateUserResponse,
-    ListUserResponseItem,
-    ListUserHandler,
-    ListUserRequest,
-    UpdateUserHandler,
-    UpdateUserRequest,
-    UpdateUserResponse,
-    DeleteUserHandler,
-    DeleteUserRequest,
-    DeleteUserResponse,
-    TaskReportHandler,
-    TaskReportRequest,
-    TaskReportResponseItem,
-)
+
+from src.use_cases.user import (CreateUserHandler, CreateUserRequest,
+                                CreateUserResponse, DeleteUserHandler,
+                                DeleteUserRequest, DeleteUserResponse,
+                                ListUserHandler, ListUserRequest,
+                                ListUserResponseItem, TaskReportHandler,
+                                TaskReportRequest, TaskReportResponseItem,
+                                UpdateUserHandler, UpdateUserRequest,
+                                UpdateUserResponse)
 
 user_router = APIRouter(prefix="/users", tags=["users"])
 

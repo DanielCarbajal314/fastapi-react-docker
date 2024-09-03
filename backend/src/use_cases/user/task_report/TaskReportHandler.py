@@ -1,8 +1,9 @@
-from typing import List
-from .TaskReportResponseItem import TaskReportResponseItem, TaskScheme
-from .TaskReportRequest import TaskReportRequest
-from ...shared import BaseHandler
 from itertools import groupby
+from typing import List
+
+from ...shared import BaseHandler
+from .TaskReportRequest import TaskReportRequest
+from .TaskReportResponseItem import TaskReportResponseItem, TaskScheme
 
 
 class TaskReportHandler(BaseHandler[TaskReportRequest, List[TaskReportResponseItem]]):
