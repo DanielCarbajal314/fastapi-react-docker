@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Button,
   CloseButton,
@@ -7,6 +6,7 @@ import {
 } from "../../../shared/components";
 import { Option } from "../../../shared/api/types";
 import { ProjectCreateRequest } from "../api/types";
+import { useCreateProjectModalState } from "../hooks/useCreateProjectModalState";
 
 type CreateProjectModalProps = {
   showProjectModal: boolean;
@@ -14,53 +14,6 @@ type CreateProjectModalProps = {
   userOptions: Option[];
   createProjectIsLoading: boolean;
   createProject: (body: ProjectCreateRequest, onSuccess?: () => void) => void;
-};
-
-interface UseModalState {
-  projectName: string;
-  selectedUserIds: number[];
-  taskStates: string[];
-  taskStateName: string;
-}
-
-const useModalState = () => {
-  const [stateModal, setModalState] = useState<UseModalState>({
-    projectName: "",
-    selectedUserIds: [],
-    taskStates: [],
-    taskStateName: "",
-  });
-  const setProjectName = (name: string) =>
-    setModalState((state) => ({ ...state, projectName: name }));
-  const setSelectedUserIds = (selectedUserIds: number[]) =>
-    setModalState((state) => ({ ...state, selectedUserIds }));
-  const setTaskStateName = (taskStateName: string) =>
-    setModalState((state) => ({ ...state, taskStateName }));
-  const addTaskState = () => {
-    setModalState((state) => ({
-      ...state,
-      taskStates: [...state.taskStates, state.taskStateName],
-      taskStateName: "",
-    }));
-  };
-  const removeTaskState = (name: string) =>
-    setModalState((state) => ({
-      ...state,
-      taskStates: state.taskStates.filter((x) => x !== name),
-    }));
-  const canSave =
-    stateModal.projectName?.length &&
-    stateModal.selectedUserIds?.length &&
-    stateModal.taskStates?.length;
-  return {
-    ...stateModal,
-    canSave,
-    setProjectName,
-    setSelectedUserIds,
-    removeTaskState,
-    addTaskState,
-    setTaskStateName,
-  };
 };
 
 export function CreateProjectModal({
@@ -81,7 +34,7 @@ export function CreateProjectModal({
     projectName,
     canSave,
     taskStateName,
-  } = useModalState();
+  } = useCreateProjectModalState();
   const createClicked = () => {
     createProject(
       { name: projectName, taskStates, usersIds: selectedUserIds },
@@ -108,7 +61,7 @@ export function CreateProjectModal({
             <div className="p-4 md:p-5 space-y-4">
               <form className="flex-col">
                 <div className="mb-5 w-1/2">
-                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white w-10 w-auto">
+                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white w-auto">
                     Project Name:
                   </label>
                   <input
@@ -127,14 +80,14 @@ export function CreateProjectModal({
                 </div>
                 <div className="mb-5 flex justify-between w-full gap-4 items-end">
                   <div className="w-[45%]">
-                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white w-10 w-auto">
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white w-auto">
                       Task Status Name:
                     </label>
                     <input
                       onChange={(e) => setTaskStateName(e.target.value)}
                       value={taskStateName}
                       type="text"
-                      className="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required
                     />
                   </div>
