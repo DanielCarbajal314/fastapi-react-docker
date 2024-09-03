@@ -50,3 +50,13 @@ services:
       - .env.frontend
     ports:
       - 3005:5173
+
+  integration:
+    build: 
+      context: integration
+      target: development
+    volumes:
+      - ./integration/project:/code/project
+      - ./integration/user:/code/user
+      - ./integration/environments:/code/environments
+    tty: true

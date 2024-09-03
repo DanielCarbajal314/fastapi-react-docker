@@ -1,7 +1,7 @@
 meta {
   name: User Task Report
   type: http
-  seq: 9
+  seq: 10
 }
 
 get {
@@ -12,4 +12,8 @@ get {
 
 assert {
   res.body.length: gte 1
+}
+
+script:post-response {
+  bru.setNextRequest("Create third task")
 }

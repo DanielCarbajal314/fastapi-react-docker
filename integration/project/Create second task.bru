@@ -1,7 +1,7 @@
 meta {
-  name: Create Task
+  name: Create second task
   type: http
-  seq: 7
+  seq: 8
 }
 
 post {
@@ -30,5 +30,6 @@ script:pre-request {
 }
 
 script:post-response {
-  bru.setNextRequest("Create second task")
+  bru.setNextRequest("Update Task State")
+  bru.setVar("new_task_id", res.body.id);
 }

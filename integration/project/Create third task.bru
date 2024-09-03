@@ -1,7 +1,7 @@
 meta {
-  name: Create Task
+  name: Create third task
   type: http
-  seq: 7
+  seq: 11
 }
 
 post {
@@ -15,7 +15,7 @@ body:json {
       "projectId": {{created_project_id}},
       "name": "{{new_task_name}}",
       "description": "{{new_task_description}}",
-      "taskStateId": {{created_project_first_task_state_id}},
+      "taskStateId": {{created_project_third_task_state_id}},
       "userIds": [
         {{createdUserId_3}},
         {{createdUserId_2}}
@@ -27,8 +27,4 @@ script:pre-request {
   const {faker} = require('@faker-js/faker');
   bru.setVar("new_task_name",faker.lorem.words());
   bru.setVar("new_task_description",faker.lorem.paragraph());
-}
-
-script:post-response {
-  bru.setNextRequest("Create second task")
 }
