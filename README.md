@@ -22,6 +22,7 @@ You can create users, create projects and add tasks to them, also show a report 
 
 - `make up` : Builds the containers and start the up
 - `make unit-test` : Runs unit test inside the server container
+- `make integration-test` : Runs integration test on a separated container, it creates a project with 3 users, 3 steps and 3 tasks
 
 Design Comments:
 
