@@ -11,5 +11,5 @@ class TaskScheme(BaseSchema):
 
 
 class TaskReportResponseItem(BaseSchema):
-    userName: str
+    user_name: str
     tasks: List[TaskScheme]

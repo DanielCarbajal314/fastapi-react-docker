@@ -9,3 +9,7 @@ get {
   body: none
   auth: none
 }
+
+assert {
+  res.body.length: gte 1
+}

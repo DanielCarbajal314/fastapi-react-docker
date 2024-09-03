@@ -11,7 +11,7 @@ class TaskReportHandler(BaseHandler[TaskReportRequest, List[TaskReportResponseIt
         report_grouped_by_username = groupby(report, lambda x: x.user_name)
         return [
             TaskReportResponseItem(
-                userName=user_name,
+                user_name=user_name,
                 tasks=[
                     TaskScheme(
                         id=task.task_id,
