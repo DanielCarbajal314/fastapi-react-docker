@@ -16,7 +16,7 @@ class GetProjectHandler(BaseHandler[GetProjectRequest, GetProjectResponse]):
                 Option(value=user.id, label=user.name) for user in sorted(project.users, key=lambda x: x.name)
             ],
             task_states_options=[
-                Option(value=state.id, label=state.name) for state in sorted(project_tasks_state, key=lambda x: x.name)
+                Option(value=state.id, label=state.name) for state in sorted(project_tasks_state, key=lambda x: x.id)
             ],
             tasks=[
                 TaskSchema(

@@ -17,3 +17,7 @@ body:json {
       "taskStateId": {{created_project_second_task_state_id}}
   }
 }
+
+script:post-response {
+  bru.setNextRequest("User Task Report")
+}

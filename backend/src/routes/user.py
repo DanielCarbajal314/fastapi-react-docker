@@ -14,6 +14,9 @@ from src.use_cases.user import (
     DeleteUserHandler,
     DeleteUserRequest,
     DeleteUserResponse,
+    TaskReportHandler,
+    TaskReportRequest,
+    TaskReportResponseItem,
 )
 
 user_router = APIRouter(prefix="/users", tags=["users"])
@@ -24,6 +27,11 @@ async def create_user(
     request: CreateUserRequest, handler: CreateUserHandler = Depends(CreateUserHandler)
 ) -> CreateUserResponse:
     return await handler.execute(request)
+
+
+@user_router.get("/tasks/report", response_model=List[TaskReportResponseItem])
+async def create_user(handler: TaskReportHandler = Depends(TaskReportHandler)) -> List[TaskReportResponseItem]:
+    return await handler.execute(TaskReportRequest())
 
 
 @user_router.get("/", response_model=List[ListUserResponseItem])

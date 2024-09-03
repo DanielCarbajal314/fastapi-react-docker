@@ -2,3 +2,4 @@ from .create.CreateUserHandler import CreateUserHandler, CreateUserRequest, Crea
 from .list.ListUserHandler import ListUserHandler, ListUserRequest, ListUserResponseItem
 from .delete.DeleteUserHandler import DeleteUserHandler, DeleteUserRequest, DeleteUserResponse
 from .update.UpdateUserHandler import UpdateUserHandler, UpdateUserRequest, UpdateUserResponse
+from .task_report.TaskReportHandler import TaskReportHandler, TaskReportRequest, TaskReportResponseItem
