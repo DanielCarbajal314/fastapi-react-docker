@@ -15,6 +15,7 @@ This is a fullstack app for task management base on the next techstack:
 - Tailwind
 - ReactQuery
 - Bruno
+- playwright
 
 You can create users, create projects and add tasks to them, also show a report view to see all user tasks among projects. It runs on [http://localhost:3005/](http://localhost:3005/)
 
