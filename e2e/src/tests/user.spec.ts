@@ -5,6 +5,7 @@ import { faker } from '@faker-js/faker';
 test.beforeEach(async ({ page }) => {
   const userPage = new UserPage(page);
   await userPage.navigateToPage();
+  await userPage.setupProxy();
 });
 
 test('can register user', async ({ page }) => {

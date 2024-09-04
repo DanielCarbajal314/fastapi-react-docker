@@ -7,7 +7,6 @@ export class UserPage extends BasePage {
     }
 
     async fillNewUserNameInput(name: string): Promise<void> {
-        await this.page.screenshot({ path: `screenshots/${name}.png` });
         const newUserInput = await this.page.getByTestId("new_user_input");
         await newUserInput.fill(name);
     }
