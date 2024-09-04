@@ -22,3 +22,7 @@ unit-test:
 	@docker compose $(LOCAL_DEVELOPMENT_FILES) exec server bash -c "poetry run pytest"
 integration-test:
 	@docker compose $(LOCAL_DEVELOPMENT_FILES) exec integration bash -c "node ./node_modules/@usebruno/cli/bin/bru.js run --env dev"
+e2e-test:
+	@docker compose $(LOCAL_DEVELOPMENT_FILES) exec e2e bash -c "npx playwright test"
+shell-into-e2e:
+	@docker compose $(LOCAL_DEVELOPMENT_FILES) exec e2e bash

@@ -60,3 +60,13 @@ services:
       - ./integration/user:/code/user
       - ./integration/environments:/code/environments
     tty: true
+
+  e2e:
+    build: 
+      context: e2e
+      target: test
+    volumes:
+      - ./e2e/src:/src
+    tty: true
+    environment:
+      - TEST_URL=http://ui:5173
