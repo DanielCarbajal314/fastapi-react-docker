@@ -3,7 +3,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH="/root/.local/bin:$PATH"
 WORKDIR /code
 COPY ./pyproject.toml /code/pyproject.toml
-#COPY ./poetry.lock /code/poetry.lock
+COPY ./poetry.lock /code/poetry.lock
 RUN poetry install
 
 FROM base AS local_devlopment_base
