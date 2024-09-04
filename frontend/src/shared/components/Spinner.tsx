@@ -13,7 +13,7 @@ interface SpinnerProps {
 export function Spinner({ size = "sm" }: SpinnerProps) {
   const sizeClasses = spinnerSizeMap[size];
   return (
-    <div role="status">
+    <div role="status" data-pw="is_loading">
       <svg
         aria-hidden="true"
         className={`${sizeClasses} text-gray-200 animate-spin dark:text-gray-600 fill-blue-300`}

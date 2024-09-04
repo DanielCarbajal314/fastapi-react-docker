@@ -23,14 +23,15 @@ export function UserFilter({ setUserFilterName }: UserFilterProps) {
         </label>
         <input
           value={nameFilter}
+          data-pw="user_seach_input"
           onChange={(e) => setNameFilter(e.target.value)}
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="John Doe"
           required
         />
       </div>
-      <Button label="Search" onClick={onFilter} disabled={cannotSearch} />
-      <Button label="Clear" onClick={onClear} disabled={cannotSearch} />
+      <Button data-pw="user_search_button" label="Search" onClick={onFilter} disabled={cannotSearch} />
+      <Button data-pw="user_search_clear_button" label="Clear" onClick={onClear} disabled={cannotSearch} />
     </div>
   );
 }

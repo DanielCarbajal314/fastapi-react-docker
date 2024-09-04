@@ -42,6 +42,7 @@ export function UserTableRow({
         {isOnUpdateMode ? (
           <div className="flex justify-start items-center">
             <input
+              data-pw="update_user_name_text_input"
               value={updateText}
               onChange={inputChanges}
               className="bg-gray-50 w-[50%] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -55,31 +56,33 @@ export function UserTableRow({
       </td>
       <td className="px-6 py-4">
         {isOnUpdateMode ? (
-          <div className="flex justify-center items-center gap-10 max-w-20">
+          <div className="flex justify-center items-center gap-10 max-w-20" data-pw="is_on_update_mode">
             <Button
+              data-pw="update_confirm"
               label="Confirm"
               onClick={onUpdate}
               disabled={disableWhileUpdating}
               isLoading={disableWhileUpdating}
             />
             <Button
-              label="Calcel"
+              data-pw="update_cancel"
+              label="Cancel"
               onClick={setToRegularMode}
               disabled={disableWhileUpdating}
               isLoading={disableWhileUpdating}
             />
           </div>
         ) : (
-          <div className="flex justify-center items-center gap-10 max-w-20">
+          <div className="flex justify-center items-center gap-10 max-w-20" data-pw="is_not_in_update_mode">
             <Button
-              data-ui="update_button"
+              data-pw="update_button"
               label="Update"
               onClick={setToUpdateMode}
               disabled={disableWhileDeleting}
               isLoading={disableWhileDeleting}
             />
             <Button
-              data-ui="update_delete"
+              data-pw="delete_button"
               label="Delete"
               onClick={onDelete}
               disabled={disableWhileDeleting}
